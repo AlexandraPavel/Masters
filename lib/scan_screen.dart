@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'shopping_cart.dart';
+import 'paymen_handle.dart';
 
 void main()=>runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -13,6 +14,7 @@ class QrCode extends StatefulWidget{
 }
 
 class _QrCodeState extends State<QrCode> {
+  int amount = 200;
   String _data = "";
   List<String> products = [];
 
@@ -31,7 +33,9 @@ class _QrCodeState extends State<QrCode> {
           ),
           FlatButton(child: Text("Shopping Cart"),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ShoppingScreen(products))),
-            //onPressed: () {print(products[0]);},
+          ),
+          FlatButton(child: Text("Pay"),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Payment(amount))),
           ),
         ],),
 
